@@ -1,0 +1,443 @@
+.orders-container, .order-details-container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    font-size: 2rem;
+    color: #6b4e16;
+    margin-bottom: 1rem;
+}
+
+
+.orders-table, .order-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.orders-table th, .orders-table td, .order-items-table th, .order-items-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.orders-table th, .order-items-table th {
+    background-color: #6b4e16;
+    color: white;
+}
+
+.orders-table td, .order-items-table td {
+    background-color: #fff;
+}
+
+
+.btn {
+    background-color: #6b4e16;
+    color: white;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 1rem;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #4c3710;
+    transform: scale(1.05);
+}
+
+
+.back-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.back-btn {
+    background-color: #6b4e16;
+    color: white;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #4c3710;
+}
+
+
+.order-confirmation-container {
+    padding: 2rem;
+    background-color: #fafafa;
+    max-width: 900px;
+    margin: 2rem auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.confirmation-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.confirmation-header h1 {
+    font-size: 2.8rem;
+    color: #6B4E16;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.confirmation-header p {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 0;
+}
+
+
+.order-details {
+    margin-bottom: 3rem;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.order-table th,
+.order-table td {
+    padding: 15px 20px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+.order-table th {
+    background-color: #6B4E16;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.order-table td {
+    background-color: #fff;
+    color: #333;
+}
+
+.order-total {
+    font-size: 1.6rem;
+    text-align: right;
+    color: #333;
+    font-weight: bold;
+    margin-top: 1.5rem;
+}
+
+
+.order-actions {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.order-actions .btn {
+    display: inline-block;
+    background-color: #6B4E16;
+    color: #fff;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    margin: 0.5rem;
+    text-transform: uppercase;
+}
+
+.order-actions .btn:hover {
+    background-color: #4C3710;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 768px) {
+    .order-confirmation-container {
+        padding: 1.5rem;
+    }
+
+    .confirmation-header h1 {
+        font-size: 2.4rem;
+    }
+
+    .order-table th,
+    .order-table td {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    .order-actions .btn {
+        font-size: 1.1rem;
+        padding: 0.8rem 2rem;
+    }
+
+    .back-btn {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .order-confirmation-container {
+        padding: 1rem;
+    }
+
+    .confirmation-header h1 {
+        font-size: 2rem;
+    }
+
+    .order-table th,
+    .order-table td {
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+
+    .order-actions .btn {
+        font-size: 1rem;
+        padding: 0.6rem 1.5rem;
+    }
+
+    .back-btn {
+        font-size: 0.8rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+
+.orders-container {
+    padding: 2rem;
+    background-color: #fafafa;
+    max-width: 900px;
+    margin: 2rem auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.page-title-container {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.page-title-container h1 {
+    font-size: 2.8rem;
+    color: #6B4E16;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.page-title-container p {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 0;
+}
+
+
+.order-info-container {
+    margin-bottom: 3rem;
+}
+
+.order-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary-table th,
+.order-summary-table td {
+    padding: 15px 20px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+.order-summary-table th {
+    background-color: #6B4E16;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.order-summary-table td {
+    background-color: #fff;
+    color: #333;
+}
+
+.order-total-container {
+    font-size: 1.6rem;
+    text-align: right;
+    color: #333;
+    font-weight: bold;
+    margin-top: 1.5rem;
+}
+
+
+.action-buttons {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.action-buttons .btn {
+    display: inline-block;
+    background-color: #6B4E16;
+    color: #fff;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    margin: 0.5rem;
+    text-transform: uppercase;
+}
+
+.action-buttons .btn:hover {
+    background-color: #4C3710;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 768px) {
+    .orders-container {
+        padding: 1.5rem;
+    }
+
+    .page-title-container h1 {
+        font-size: 2.4rem;
+    }
+
+    .order-summary-table th,
+    .order-summary-table td {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    .action-buttons .btn {
+        font-size: 1.1rem;
+        padding: 0.8rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .orders-container {
+        padding: 1rem;
+    }
+
+    .page-title-container h1 {
+        font-size: 2rem;
+    }
+
+    .order-summary-table th,
+    .order-summary-table td {
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+
+    .action-buttons .btn {
+        font-size: 1rem;
+        padding: 0.6rem 1.5rem;
+    }
+}
+
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+
+    .header {
+        padding: 3rem;
+    }
+
+    section {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .heading {
+        font-size: 6rem;
+    }
+
+    .heading span {
+        font-size: 2.3rem;
+    }
+
+    #menu-btn {
+        display: initial;
+    }
+
+    #menu-btn.fa-times {
+        transform: rotate(180deg);
+    }
+
+    .header .navbar {
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .header .navbar a {
+        display: block;
+        font-size: 2.2rem;
+        margin: 0;
+        padding: 1.5rem 2rem;
+    }
+
+    .home {
+        text-align: center;
+    }
+
+    .home .row .content h3 {
+        font-size: 4rem;
+    }
+
+    .menu .box-container .box {
+        margin-left: 0;
+        margin-top: 6rem;
+        flex-flow: column;
+        text-align: center;
+    }
+
+    .menu .box-container .box img {
+        margin-left: 0;
+        margin-top: -6rem;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .home .row .image img {
+        height: auto;
+        width: 100%;
+    }
+}

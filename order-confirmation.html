@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style-orders.css">
+</head>
+<style>
+   
+    .customer-name {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .customer-name label {
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .customer-name input {
+        width: 80%;
+        padding: 12px;
+        font-size: 16px;
+        margin-top: 8px;
+        border-radius: 8px;
+        border: 2px solid #ddd;
+        transition: border-color 0.3s ease;
+    }
+
+    .customer-name input:focus {
+        border-color: #4CAF50;
+        outline: none;
+    }
+
+    .customer-name input::placeholder {
+        color: #aaa;
+    }
+
+    .order-actions {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #45a049;
+    }
+</style>
+<body>
+    
+    <header class="header">
+        <div id="menu-btn" class="fas fa-bars"></div>
+    
+        <a href="index.html" class="logo">nuclear coffee <i class="fas fa-mug-hot"></i></a>
+    
+        <nav class="navbar">
+            <a href="index.html" class="navbar-link">home</a>
+            <a href="about.html" class="navbar-link">about</a>
+            <a href="buy-coffee.html" class="navbar-link">buy</a>
+            <a href="review.html" class="navbar-link">review</a>
+        </nav>
+    </header>
+    <section>
+    <div class="order-confirmation-container">
+        <div class="confirmation-header">
+            <h1>Processing Order!</h1>
+            <p>Your order is being processed. Thank you for your purchase!</p>
+        </div>
+        <div class="order-details">
+            <h2>Order Summary</h2>
+            <table class="order-table" id="order-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+            <div class="order-total">
+                <p><strong>Total Price: ₱<span id="total-price">0.00</span></strong></p>
+            </div>
+        </div>
+
+      
+        <div class="customer-name">
+            <label for="customer-name">Enter Your Name:</label>
+            <input type="text" id="customer-name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="order-actions">
+          
+            <button class="btn" id="confirm-order-btn">Confirm Order</button>
+        </div>
+    </div>
+    </section>
+    <script>
+        
+        const products = [
+            {id: 1, name: "Espresso", price: 100},
+            {id: 2, name: "Cappuccino", price: 150},
+            {id: 3, name: "Latte", price: 200}
+        ];
+
+       
+        const cart = JSON.parse(localStorage.getItem('cart')) || {};
+        const orderTableBody = document.getElementById('order-table').getElementsByTagName('tbody')[0];
+        const totalPriceElement = document.getElementById('total-price');
+
+        let totalPrice = 0;
+
+        
+        for (let productId in cart) {
+            const product = products.find(p => p.id == productId);
+            const quantity = cart[productId];
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${product.name}</td>
+                <td>${quantity}</td>
+                <td>₱${(product.price * quantity).toFixed(2)}</td>
+            `;
+            orderTableBody.appendChild(row);
+
+           
+            totalPrice += product.price * quantity;
+        }
+
+        
+        totalPriceElement.textContent = totalPrice.toFixed(2);
+
+       
+        document.getElementById('confirm-order-btn').addEventListener('click', function() {
+           
+            const customerName = document.getElementById('customer-name').value.trim();
+
+            if (customerName) {
+               
+                alert(`The staff will call ${customerName} for the order shortly.`);
+                localStorage.removeItem('cart'); 
+                window.location.href = 'index.html'; 
+            } else {
+
+                alert("Please enter your name before confirming the order.");
+            }
+        });
+    </script>
+
+    <script src="js/script2.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Coffee</title>
+    <link rel="stylesheet" href="css/style-buy.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+<header class="header">
+    <div id="menu-btn" class="fas fa-bars"></div>
+    <a href="index.html" class="logo">nuclear coffee <i class="fas fa-mug-hot"></i></a>
+
+    <nav class="navbar">
+        <a href="index.html" class="navbar-link">home</a>
+        <a href="about.html" class="navbar-link">about</a>
+        <a href="buy-coffee.html" class="navbar-link">buy</a>
+        <a href="review.html" class="navbar-link">review</a>
+        
+    </nav>
+</header>
+
+<main>
+    <h1>Buy Your Favorite Coffee</h1>
+    <div class="products" id="product-list"></div>
+
+    <section class="cart" id="cart-section">
+        <h2>Your Cart</h2>
+        <div id="cart-content"></div>
+        <a href="order-confirmation.html" class="btn" id="checkout-btn" style="display:none;">Proceed to Checkout</a>
+    </section>
+</main>
+
+<script>
+const products = [
+    {id: 1, name: "Espresso", price: 100, image: "image/espresso.png"},
+    {id: 2, name: "Cappuccino", price: 150, image: "image/cappuccino.png"},
+    {id: 3, name: "Latte", price: 200, image: "image/latte.png"}
+];
+
+const productList = document.getElementById('product-list');
+products.forEach(product => {
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+    productCard.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" class="product-image">
+        <h3>${product.name}</h3>
+        <p>Price: PHP ${product.price}</p>
+        <form class="add-to-cart-form">
+            <input type="hidden" name="product_id" value="${product.id}">
+            <label for="quantity-${product.id}">Quantity:</label>
+            <input type="number" name="quantity" id="quantity-${product.id}" value="1" min="1" required>
+            <button type="submit" class="btn">Add to Cart</button>
+        </form>
+    `;
+    productList.appendChild(productCard);
+});
+
+function updateCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || {};
+    const cartContent = document.getElementById('cart-content');
+    cartContent.innerHTML = '';
+
+    let totalPrice = 0;
+    for (let productId in cart) {
+        const product = products.find(p => p.id == productId);
+        const quantity = cart[productId];
+        totalPrice += product.price * quantity;
+        const productElement = document.createElement('p');
+        productElement.textContent = `${product.name} x ${quantity} - PHP ${product.price * quantity}`;
+        cartContent.appendChild(productElement);
+    }
+
+    if (totalPrice > 0) {
+        cartContent.innerHTML += `<p><strong>Total: PHP ${totalPrice}</strong></p>`;
+        document.getElementById('checkout-btn').style.display = 'block';
+    } else {
+        cartContent.innerHTML = "<p>Your cart is empty.</p>";
+    }
+}
+
+document.addEventListener('submit', function(event) {
+    if (event.target.classList.contains('add-to-cart-form')) {
+        event.preventDefault();
+
+        const form = event.target;
+        const productId = form.querySelector('input[name="product_id"]').value;
+        const quantity = parseInt(form.querySelector('input[name="quantity"]').value);
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || {};
+        if (cart[productId]) {
+            cart[productId] += quantity;
+        } else {
+            cart[productId] = quantity;
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        updateCart();
+        alert('Product added to cart!');
+    }
+});
+
+updateCart();
+</script>
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
