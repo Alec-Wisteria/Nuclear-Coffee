@@ -19,8 +19,6 @@
         <a href="index.html" class="navbar-link">home</a>
         <a href="about.html" class="navbar-link">about</a>
         <a href="buy-coffee.html" class="navbar-link">buy</a>
-        <a href="review.html" class="navbar-link">review</a>
-        
     </nav>
 </header>
 
@@ -52,7 +50,7 @@ products.forEach(product => {
         <p>Price: PHP ${product.price}</p>
         <form class="add-to-cart-form">
             <input type="hidden" name="product_id" value="${product.id}">
-            <label for="quantity-${product.id}">Quantity:</label>
+            <label for="quantity-${product.id}" style="font-size: 2rem;">Quantity: </label>
             <input type="number" name="quantity" id="quantity-${product.id}" value="1" min="1" required>
             <button type="submit" class="btn">Add to Cart</button>
         </form>

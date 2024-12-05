@@ -114,9 +114,10 @@ section {
 .about {
     min-height: 100vh;
     padding-top: 12rem;
-    background: url(../image/about-bg-img1.jpg) no-repeat;
+    background: rgba(151, 144, 144, 0.1);
     background-position: center;
     background-size: cover;
+    
 }
 
 .about .row {

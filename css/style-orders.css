@@ -99,7 +99,7 @@
 }
 
 .confirmation-header p {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     color: #666;
     margin: 0;
 }
@@ -128,11 +128,13 @@
     color: #fff;
     font-weight: 700;
     text-transform: uppercase;
+    font-size: 1.6rem;
 }
 
 .order-table td {
     background-color: #fff;
     color: #333;
+    font-size: 1.6rem;
 }
 
 .order-total {
@@ -373,7 +375,6 @@
     outline: none;
     border: none;
     text-decoration: none;
-    text-transform: capitalize;
     transition: all .2s linear;
 }
 
